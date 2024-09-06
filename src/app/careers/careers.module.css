@@ -1,0 +1,18 @@
+/* .careersPage.css */
+.careersPage {
+  background-image: url('/cmt2.jpg');
+  background-size: cover;
+  background-position: center;
+  height: auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+@media (max-width: 600px) {
+  .careersPage {
+    padding: 1rem;
+  }
+}

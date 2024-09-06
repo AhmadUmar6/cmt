@@ -1,0 +1,102 @@
+.ourClients {
+  background-color: #A20D28;
+  padding: 4rem 2rem;
+  width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ourClients h2 {
+  color: white;
+  margin-bottom: 3rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.ourClients h2::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 2px;
+  background-color: white;
+  margin: 0.5rem auto;
+}
+
+.ourClients h2 i {
+  margin-right: 10px;
+  color: white;
+}
+
+.clientGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 90%;
+}
+
+.clientTile {
+  flex: 0 0 calc(14.28% - 1.5rem); /* Approximately 7 items per row */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  padding: 1rem;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.clientTile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.clientLogo {
+  max-width: 100%;
+  max-height: 100px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.clientName {
+  font-size: 1rem;
+  color: white;
+  margin-top: 0;
+}
+
+@media (max-width: 1200px) {
+  .clientTile {
+    flex: 0 0 calc(20% - 1.5rem); /* 5 items per row */
+  }
+}
+
+@media (max-width: 900px) {
+  .clientTile {
+    flex: 0 0 calc(25% - 1.5rem); /* 4 items per row */
+  }
+  .ourClients h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .clientTile {
+    flex: 0 0 calc(33.33% - 1.5rem); /* 3 items per row */
+  }
+  .ourClients {
+    padding: 3rem 1rem;
+  }
+  .ourClients h2 {
+    font-size: 1.75rem;
+  }
+  .clientName {
+    font-size: 0.8rem;
+  }
+}

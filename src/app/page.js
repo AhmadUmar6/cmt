@@ -1,95 +1,125 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
+import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion, useScroll } from 'framer-motion';
+import { FaServicestack, FaArrowRight } from 'react-icons/fa';
+import { FaLaptop, FaGavel, FaHandshake, FaBriefcase, FaUserShield, FaNotesMedical, FaChevronRight } from 'react-icons/fa';
+import Maps from '../components/Maps';
+import styles from './page.module.css';
+
+const services = [
+  { icon: <FaBriefcase />, title: 'Corporate & Business Law', description: 'At CH.M.T Law we offer consultations to firms of all sizes and natures regarding the complex framework of modern business.' },
+  { icon: <FaLaptop />, title: 'Commercial Law', description: 'Our advocates are well-versed in the legal framework that regulates commercial dealings and activities.' },
+  { icon: <FaGavel />, title: 'Criminal Law', description: 'Whether you have been charged with a serious or minor offense, we are there to protect your legal rights and ensure that you are properly represented.' },
+  { icon: <FaHandshake />, title: 'Family Law', description: 'We actively practice family law which relates to marriage, divorce, adoption, child custody, and other matters involving family relationships.' },
+  { icon: <FaUserShield />, title: 'Employment Laws', description: 'We help government and private firms understand and follow the employment laws to avoid infringement of legal rights.' },
+  { icon: <FaNotesMedical />, title: 'Personal Injuries & Insurance Law', description: 'We seek in-depth knowledge of the events to help you understand your rights and discuss ways to claim entitled compensation.' },
+];
+
+const Section = ({ children, className = '' }) => (
+  <motion.section
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+    className={`${styles.section} ${className}`}
+  >
+    {children}
+  </motion.section>
+);
 
 export default function Home() {
+  const { scrollYProgress } = useScroll();
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    const header = headerRef.current;
+    scrollYProgress.onChange(latest => {
+      if (header) {
+        header.style.opacity = 1 - latest * 5;
+        header.style.transform = `translateY(${latest * 50}px)`;
+      }
+    });
+  }, [scrollYProgress]);
+
+  const handleFlip = (index) => {
+    const tile = document.querySelector(`#tileInner${index}`);
+    tile.classList.toggle(styles.flipped);
+  };
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className={styles.container}>
+      <header ref={headerRef} className={styles.header}>
+        <Image src="/leather4.png" alt="Background" layout="fill" objectFit="cover" quality={100} />
+        <div className={styles.heroText}>
+          <motion.h1 
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className={styles.headerTitle}
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            CMT Advocates
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+            className={styles.headerSubtitle}
+          >
+            Empowering your rights with experienced, strategic, and innovative legal solutions.
+          </motion.p>
         </div>
-      </div>
+      </header>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <Section className={styles.aboutSection}>
+        <div className={styles.aboutContainer}>
+          <div className={styles.leftBox}>
+            <h2 className={styles.sectionTitle2}>We aspire to provide practical, comprehensive, and timely legal services that meet our clients’ needs.</h2>
+            <Link href="/the-firm" className={styles.readMoreLink}>
+              Read More <FaChevronRight />
+            </Link>
+          </div>
+          <div className={styles.rightText}>
+            <p>Our commitment to excellence and deep understanding of Pakistani law makes us the go-to firm for complex legal matters. We pride ourselves on our ability to navigate the intricacies of the legal system while maintaining the highest ethical standards.</p>
+          </div>
+        </div>
+      </Section>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+      <Section className={styles.servicesSection}>
+        <div className={styles.headingContainer}>
+          <FaServicestack className={styles.headingIcon} />
+          <h2 className={styles.heading}>Our Services</h2>
+        </div>
+        <div className={styles.serviceContainer}>
+          {services.map((service, index) => (
+            <div key={index} className={styles.tile} onClick={() => handleFlip(index)}>
+              <div id={`tileInner${index}`} className={styles.tileInner}>
+                <div className={styles.tileFront}>
+                  <div className={styles.icon}>{service.icon}</div>
+                  <h3 className={styles.title}>{service.title}</h3>
+                </div>
+                <div className={styles.tileBack}>
+                  <p className={styles.description}>{service.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+          <Link href="/practice-areas" className={styles.iconButton}>
+            <FaChevronRight />
+          </Link>
+        </div>
+      </Section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+      <Section className={styles.contactSection}>
+        <div className={styles.contactContent}>
+          <h2 className={styles.sectionTitle}>Get In Touch</h2>
+          <p className={styles.sectionText}>
+            You can visit our office and we'd love to serve you at your convenience.
           </p>
-        </a>
-      </div>
-    </main>
+        </div>
+        <Maps />
+      </Section>
+    </div>
   );
 }

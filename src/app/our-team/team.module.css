@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap');
+
+.ourTeamPage {
+  background-color: #F7F7F7;
+}
+
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 73vh;
+  overflow: hidden;
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+.heroText {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 3rem;
+  line-height: 45px;
+}
+
+.searchSection {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.searchSection input {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+  background-color: #F5F5F5;
+  color: #333;
+  font-size: 16px;
+  text-align: center;
+}
+
+.searchSection button {
+  padding: 1rem 2rem;
+  border: none;
+  background-color: #14212D;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.searchSection a {
+  align-self: center;
+  color: #14212D;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.teamSection {
+  padding: 4rem 2rem;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.teamCard {
+  display: flex;
+  background-color: white;
+  border-top: 5px solid #AD112A;
+  padding: 3rem;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.teamCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #AD112A;
+  z-index: 0;
+  transition: height 0.5s ease;
+}
+
+.teamCard:hover::before {
+  height: 100%;
+}
+
+.teamCard h3,
+.teamCard p,
+.teamCard a {
+  position: relative;
+  z-index: 1;
+  color: #1A2939;
+  transition: color 0.3s ease;
+}
+
+.teamCard h3 {
+  font-family: 'Lora', serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 43px;
+  color: #1A2939;
+}
+
+.teamCard p {
+  margin: 0.5rem 0;
+  color: #1A2939;
+}
+
+.teamCard a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #1A2939;
+  text-decoration: underline;
+  text-decoration-color: #AD112A;
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.teamCard p svg {
+  color: #AD112A;
+  margin-right: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.teamCard:hover h3,
+.teamCard:hover p,
+.teamCard:hover a {
+  color: white;
+}
+
+.teamCard:hover p svg {
+  color: white;
+}
+
+.teamCard:hover a {
+  text-decoration-color: white;
+}
+
+.cardImageContainer {
+  flex: 0 0 auto;
+  width: 150px;
+  height: 150px;
+  margin-right: 2rem;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.cardImageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.cardTextContainer {
+  flex: 1 1 auto;
+}
+
+.cardTextContainer p {
+  margin: 0.5rem 0;
+}
+
+.cardTextContainer a {
+  margin-right: 2rem;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+  .searchSection {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .searchSection input {
+    width: 100%;
+  }
+
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .teamCard {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cardImageContainer {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroText{
+    font-size: 2.8rem;
+    line-height: 52px;
+  }
+
+  .teamCard {
+    padding: 2rem;
+  }
+
+  .cardTextContainer a {
+    display: block;
+    margin-right: 0;
+    margin-top: 1rem;
+  }
+}

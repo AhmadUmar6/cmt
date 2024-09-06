@@ -1,0 +1,35 @@
+.ourServicesPage {
+    background-color: #F7F7F7;
+    position: relative;
+  }
+  
+  .imageContainer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  
+  .serviceImage {
+    width: 100%;
+    height: auto;
+    z-index: 1;
+  }
+  
+  .sec2 {
+    position: relative;
+    top: -3rem; 
+    z-index: 3;
+    width: 90%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    .sec2{
+      top: -1.5rem;
+    }
+
+  }
+  
