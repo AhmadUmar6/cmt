@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <header ref={headerRef} className={styles.header}>
-        <Image src="/leather4.png" alt="Background" layout="fill" objectFit="cover" quality={100} />
+        <Image src="https://res.cloudinary.com/dzti03r0g/image/upload/v1725641125/leather4_a4tcjz.png" alt="Background" layout="fill" objectFit="cover" quality={100} />
         <div className={styles.heroText}>
           <motion.h1 
             initial={{ opacity: 0, y: -50 }}
