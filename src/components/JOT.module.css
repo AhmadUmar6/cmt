@@ -140,6 +140,12 @@
     grid-template-columns: 1fr;
   }
 
+  .textContainer,
+  .applyContainer {
+    text-align: center;
+    align-items: center;
+  }
+
   .heading {
     font-size: 1.5rem;
   }
@@ -159,6 +165,14 @@
 
   .applyText {
     font-size: 0.875rem;
+    text-align: center;
+  }
+
+  .inputGroup {
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
