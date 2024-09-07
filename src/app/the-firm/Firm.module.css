@@ -1,6 +1,7 @@
 .firmPage {
   background-color: #F7F7F7;
-  overflow: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
 }
 
 .heroSection {
@@ -12,10 +13,11 @@
 
 .heroImage {
   width: 100%;
-  height: auto;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  object-fit: cover;
   transition: opacity 1s ease-in-out;
 }
 
@@ -27,7 +29,7 @@
 }
 
 .section2 {
-  width: 100vw;
+  width: 100%;
   margin-top: -2rem;
 }
 
@@ -50,13 +52,12 @@
 
 @media (max-width: 600px) {
   .firmPage {
-    height: 100vh; 
-    overflow-y: auto; 
+    overflow-y: auto;
   }
 
   .section {
     padding: 1rem;
-    margin-top: -15rem;
+    margin-top: -5rem;
     width: 100%;
   }
 

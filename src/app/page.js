@@ -19,10 +19,9 @@ const services = [
 
 const Section = ({ children, className = '' }) => (
   <motion.section
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5 }}
+    initial={{ opacity: 0, y: 0 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
     className={`${styles.section} ${className}`}
   >
     {children}
@@ -59,7 +58,7 @@ export default function Home() {
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
+            transition={{ duration: 1 }}
             className={styles.headerSubtitle}
           >
             Empowering your rights with experienced, strategic, and innovative legal solutions.
