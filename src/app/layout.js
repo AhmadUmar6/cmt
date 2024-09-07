@@ -3,8 +3,8 @@ import Footer from '../components/Footer'
 import './globals.css'
 
 export const metadata = {
-  title: 'My Law Firm',
-  description: 'Professional legal services for your needs',
+  title: 'CMT Advocates',
+  description: 'Professional legal services for all your needs.',
 }
 
 export default function RootLayout({ children }) {
