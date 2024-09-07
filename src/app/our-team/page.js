@@ -82,9 +82,11 @@ export default function OurTeam() {
         <Image
           src="/cmt3.jpg"
           alt="Hero Image"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
+          fill
+          style={{ objectFit: 'cover' }}
+          quality={80} 
+          priority={true}
+          loading="eager"
           className={styles.heroImage}
         />
         <div className={styles.heroText}>

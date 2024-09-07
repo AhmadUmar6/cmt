@@ -54,13 +54,11 @@ export default function Home() {
         <Image 
           src="/leather4.png" 
           alt="Background" 
-          layout="fill" 
-          objectFit="cover" 
+          fill
+          style={{ objectFit: 'cover' }}
           quality={80} 
           priority={true}
           loading="eager"
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
         />
         <div className={styles.heroText}>
           <motion.h1 
