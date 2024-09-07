@@ -51,7 +51,17 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <header ref={headerRef} className={styles.header}>
-        <Image src="/leather4.png" alt="Background" layout="fill" objectFit="cover" quality={100} />
+        <Image 
+          src="/leather4.png" 
+          alt="Background" 
+          layout="fill" 
+          objectFit="cover" 
+          quality={80} 
+          priority={true}
+          loading="eager"
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
+        />
         <div className={styles.heroText}>
           <motion.h1 
             initial={{ opacity: 0, y: -50 }}
@@ -75,7 +85,7 @@ export default function Home() {
       <Section className={styles.aboutSection}>
         <div className={styles.aboutContainer}>
           <div className={styles.leftBox}>
-            <h2 className={styles.sectionTitle2}>We aspire to provide practical, comprehensive, and timely legal services that meet our clients’ needs.</h2>
+            <h2 className={styles.sectionTitle2}>We aspire to provide practical, comprehensive, and timely legal services that meet our clients' needs.</h2>
             <Link href="/the-firm" className={styles.readMoreLink}>
               Read More <FaChevronRight />
             </Link>
