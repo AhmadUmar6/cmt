@@ -43,12 +43,6 @@ const teamMembers = [
     profileLink: '/team/member6',
   },
   {
-    name: 'Muhammad Ahsan Fiaz',
-    position: 'Associate',
-    imagePath: '/hf.jpg',
-    profileLink: '/team/member7',
-  },
-  {
     name: 'Rubah Ahmad',
     position: 'Junior Associate',
     imagePath: '/rubah.jpg',
@@ -84,7 +78,7 @@ export default function OurTeam() {
           alt="Hero Image"
           fill
           style={{ objectFit: 'cover' }}
-          quality={80} 
+          quality={100} 
           priority={true}
           loading="eager"
           className={styles.heroImage}

@@ -1,8 +1,8 @@
 'use client'
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FaServicestack, FaArrowRight } from 'react-icons/fa';
 import { FaLaptop, FaGavel, FaHandshake, FaBriefcase, FaUserShield, FaNotesMedical, FaChevronRight } from 'react-icons/fa';
 import Maps from '../components/Maps';
@@ -30,19 +30,6 @@ const Section = ({ children, className = '' }) => (
 );
 
 export default function Home() {
-  const { scrollYProgress } = useScroll();
-  const headerRef = useRef(null);
-
-  useEffect(() => {
-    const header = headerRef.current;
-    scrollYProgress.onChange(latest => {
-      if (header) {
-        header.style.opacity = 1 - latest * 5;
-        header.style.transform = `translateY(${latest * 50}px)`;
-      }
-    });
-  }, [scrollYProgress]);
-
   const handleFlip = (index) => {
     const tile = document.querySelector(`#tileInner${index}`);
     tile.classList.toggle(styles.flipped);
@@ -50,13 +37,13 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <header ref={headerRef} className={styles.header}>
+      <header className={styles.header}>
         <Image 
           src="/leather4.png" 
           alt="Background" 
           fill
           style={{ objectFit: 'cover' }}
-          quality={80} 
+          quality={90} 
           priority={true}
           loading="eager"
         />
