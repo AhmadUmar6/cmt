@@ -1,18 +1,19 @@
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import './globals.css'
 
 export const metadata = {
-  title: 'CMT Advocates - Under Maintenance',
-  description: 'We are currently undergoing maintenance. Please check back soon.',
+  title: 'CMT Advocates',
+  description: 'Professional legal services for all your needs.',
 }
 
-export default function RootLayout() {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="flex items-center justify-center min-h-screen bg-gray-100">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">Under Maintenance</h1>
-          <p className="text-xl">We'll be back soon. Thank you for your patience.</p>
-        </div>
+      <body className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   )
